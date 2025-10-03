@@ -1,0 +1,24 @@
+---
+name: Lidarr
+version: pr-plugins-2.14.4.4810
+slug: lidarr
+description: Looks and smells like Sonarr but made for music
+startup: application
+boot: auto
+ingress: true
+ingress_port: 8686
+url: https://github.com/gr1los/ha-addons/lidarr
+image: ghcr.io/hotio/lidarr:pr-plugins-2.14.4.4810
+logo: https://raw.githubusercontent.com/gr1los/addon-lidarr/main/lidarr/logo.png
+maintainers:
+  - gr1los
+webui: http://[HOST]:[PORT:8686]
+init: false
+arch:
+  - amd64
+map:
+  - addon_config:rw
+  - share:rw
+  - media:rw
+ports:
+  8686/tcp: 8686
