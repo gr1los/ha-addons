@@ -16,6 +16,7 @@ maintainers:
 environment:
   PUID: "1000"
   PGID: "1000"
+  UMASK: "002"
 webui: http://[HOST]:[PORT:8686]
 init: false
 arch:
