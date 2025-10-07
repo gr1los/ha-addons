@@ -1,6 +1,6 @@
 ---
 name: Lidarr
-version: pr-plugins-2.14.4.4810
+version: pr-plugins
 slug: lidarr
 description: Looks and smells like Sonarr but made for music
 startup: application
