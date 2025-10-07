@@ -21,8 +21,11 @@ init: false
 arch:
   - amd64
 map:
-  - addon_config:rw
-  - share:rw
-  - media:rw
+  - type: media
+    read_only: False
+  - type: addon_config
+    read_only: False
+  - type: share
+    read_only: False
 ports:
   8686/tcp: 8686
