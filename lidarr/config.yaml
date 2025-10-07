@@ -23,10 +23,10 @@ arch:
   - amd64
 map:
   - type: media
+    path: /music
     read_only: False
   - type: addon_config
-    read_only: False
-  - type: share
+    path: /config
     read_only: False
 ports:
   8686/tcp: 8686
