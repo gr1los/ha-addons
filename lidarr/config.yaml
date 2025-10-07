@@ -23,7 +23,7 @@ arch:
   - amd64
 map:
   - type: media
-    path: /data
+    path: /data/music
     read_only: False
   - type: addon_config
     path: /config
