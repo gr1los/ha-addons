@@ -35,7 +35,6 @@ jobs:
           context: ./music_assistant_beta/
           file: ./music_assistant_beta/Dockerfile
           platforms: linux/amd64,linux/arm64
-          file: Dockerfile
           tags: |-
             ghcr.io/${{ github.repository_owner }}/mass-server:beta
           push: true
