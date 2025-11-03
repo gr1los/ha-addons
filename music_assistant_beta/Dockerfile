@@ -1,3 +1,11 @@
-FROM ghcr.io/music-assistant/server:beta
+FROM ghcr.io/music-assistant/server:2.7.0.dev2025110301
 
-RUN sed -i '229,230d' `find / -type f -wholename '*ytmusic/__init__.py' 2>/dev/null`
+COPY ytmusic /app/venv/lib/python3.13/site-packages/
+
+RUN set -x \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+        curl \
+        unzip \
+    && curl -fsSL https://deno.land/install.sh | bash -s -- -y
+
