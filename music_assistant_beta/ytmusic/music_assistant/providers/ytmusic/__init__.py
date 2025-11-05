@@ -120,7 +120,7 @@ YT_PERSONAL_PLAYLISTS = (
 )
 DYNAMIC_PLAYLIST_TRACK_LIMIT = 300
 YTM_PREMIUM_CHECK_TRACK_ID = "dQw4w9WgXcQ"
-PACKAGES_TO_INSTALL = ("yt-dlp[default]==2025.11.1.232827.dev0", "bgutil-ytdlp-pot-provider", "yt-dlp-ejs")
+PACKAGES_TO_INSTALL = ("yt-dlp[default]==2025.11.1.232827.dev0", "bgutil-ytdlp-pot-provider", "yt-dlp-ejs", "deno")
 
 SUPPORTED_FEATURES = {
     ProviderFeature.LIBRARY_ARTISTS,
@@ -986,11 +986,13 @@ class YoutubeMusicProvider(MusicProvider):
 
         def _extract_best_stream_url_format() -> dict[str, Any]:
             yt_dlp = importlib.import_module("yt_dlp")
+            deno = importlib.import_module("deno")
             url = f"{YTM_DOMAIN}/watch?v={item_id}"
             ydl_opts = {
                 "quiet": self.logger.level > logging.DEBUG,
                 "verbose": self.logger.level == VERBOSE_LOG_LEVEL,
                 "cookiefile": StringIO(self._netscape_cookie),
+                "js_runtime":  "deno:" + deno.find_deno_bin(),
                 # This enforces a player client and skips unnecessary scraping to increase speed
                 "extractor_args": {
                     "youtubepot-bgutilhttp": {
