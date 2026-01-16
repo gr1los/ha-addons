@@ -992,11 +992,14 @@ class YoutubeMusicProvider(MusicProvider):
 
         def _extract_best_stream_url_format() -> dict[str, Any]:
             yt_dlp = importlib.import_module("yt_dlp")
+            deno = importlib.import_module("deno")
             url = f"{YTM_DOMAIN}/watch?v={item_id}"
+            deno_path = f"deno:{deno.find_deno_bin()}"
             ydl_opts = {
                 "quiet": self.logger.level > logging.DEBUG,
                 "verbose": self.logger.level == VERBOSE_LOG_LEVEL,
                 "cookiefile": StringIO(self._netscape_cookie),
+                "js_runtime":  deno_path,
                 # This enforces a player client and skips unnecessary scraping to increase speed
                 "extractor_args": {
                     "youtubepot-bgutilhttp": {
