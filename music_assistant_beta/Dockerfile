@@ -1,4 +1,4 @@
-FROM ghcr.io/music-assistant/server:2.8.0b6
+FROM ghcr.io/music-assistant/server:2.8.0b10
 
 ENV UV_PRERELEASE=allow
 
